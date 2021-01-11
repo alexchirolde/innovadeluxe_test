@@ -11,11 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85b45485-a67e-4957-8282-c9b7c3d246e7" name="Default Changelist" comment="First commit">
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ParticipantsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ParticipantsFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +32,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -146,12 +160,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/DataFixtures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/assets/css" />
       <recent name="$PROJECT_DIR$/src/DataFixtures" />
     </key>
   </component>
@@ -175,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610076244299</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First commit">
+      <created>1610305083111</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610305083111</updated>
+    </task>
+    <task id="LOCAL-00003" summary=".gitignore updated">
+      <created>1610309960161</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1610309960161</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,50 +225,72 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New database schema" />
-    <option name="LAST_COMMIT_MESSAGE" value="New database schema" />
+    <MESSAGE value="First commit" />
+    <MESSAGE value=".gitignore updated" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore updated" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="187" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610038988122">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="304" y="187" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610038988122" />
+    <state x="559" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610322066664">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="559" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610322066664" />
     <state x="653" y="248" key="#com.intellij.ide.util.MemberChooser" timestamp="1610050374496">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="653" y="248" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610050374496" />
-    <state x="623" y="163" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610223966465">
+    <state x="623" y="79" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1610335597819">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="623" y="163" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610223966465" />
-    <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610228192783">
+    <state x="623" y="79" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610335597819" />
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1610307592963">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610228192783" />
-    <state x="417" y="14" key="CommitChangelistDialog2" timestamp="1610215668773">
+    <state x="578" y="279" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610307592963" />
+    <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610325688602">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="417" y="14" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610215668773" />
+    <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610325688602" />
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610309981922">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610309981922" />
     <state x="168" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1610076272736">
       <screen x="0" y="23" width="1680" height="982" />
     </state>
     <state x="168" y="93" key="DiffContextDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610049496032" />
     <state x="168" y="93" width="1344" height="840" key="DiffContextDialog/0.23.1680.982@0.23.1680.982" timestamp="1610076272736" />
-    <state x="659" y="451" key="NewPhpFileDialog" timestamp="1610217814994">
+    <state x="491" y="310" width="698" height="460" key="EditFileWatcherDialog" timestamp="1610310092571">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="659" y="451" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610217814994" />
+    <state x="491" y="310" width="698" height="460" key="EditFileWatcherDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610310092571" />
+    <state x="0" y="23" key="FileDocumentManager.FileCacheConflict" timestamp="1610307469858">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="0" y="23" key="FileDocumentManager.FileCacheConflict/0.23.1680.982@0.23.1680.982" timestamp="1610307469858" />
+    <state x="659" y="451" key="NewPhpFileDialog" timestamp="1610333496128">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="659" y="451" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610333496128" />
     <state x="440" y="261" key="Vcs.Push.Dialog.v2" timestamp="1610053863462">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610053863462" />
+    <state x="334" y="172" width="947" height="646" key="find.popup" timestamp="1610335970818">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="334" y="172" width="947" height="646" key="find.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610335970818" />
     <state x="505" y="248" key="run.anything.popup" timestamp="1610218007199">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610218007199" />
-    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup" timestamp="1610223911787">
+    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup" timestamp="1610332903625">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610223911787" />
+    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610332903625" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.982@0.23.1680.982" timestamp="1610042289615" />
   </component>
 </project>

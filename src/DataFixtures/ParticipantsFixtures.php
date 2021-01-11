@@ -17,11 +17,16 @@ class ParticipantsFixtures extends BaseFixtures
 
     public function loadData(ObjectManager $manager)
     {
+        $testingParticipant = new Participant();
+        $testingParticipant->setName('Admin');
+        $testingParticipant->setAvatar("https://fakeimg.pl/40x40/");
+        $testingParticipant->setDateAdd(new \DateTime('now'));
+        $manager->persist($testingParticipant);
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 2; $i < 20; $i++) {
             $participant = new Participant();
             $participant->setName($this->faker->name);
-            $participant->setAvatar($this->faker->imageUrl(50, 50));
+            $participant->setAvatar("https://fakeimg.pl/40x40/");
             $participant->setDateAdd($this->faker->dateTimeBetween('-5 months', 'now'));
             $manager->persist($participant);
 

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConversationController!{% endblock %}
+
+{% block body %}
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+
+    </header>
+
+    <div class="container-fluid">
+        <div class="container p-4 border border-dark">
+            <div class="row flex-xl-nowrap">
+                <aside class="col-12 col-md-3 col-xl-3 border-dark border p-3 h-75 overflow-auto ">
+                    {% for key, participant in participants %}
+                        {% for p in participant %}
+                            {% if p.id != currentParticipant %}
+                                <div class="row my-2">
+                                    <div class="col-sm-3">
+                                        <img src="{{ p.avatar }}" alt="">
+                                    </div>
+                                    <div class="col-sm-9">
+
+                                        <a href="#" onclick="getConversation()" class="participant"
+                                           data-id="{{ key }}">{{ p.name }}</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="border-dark border"></div>
+                    {% endfor %}
+                </aside>
+                <main class="col-12 col-md-9 col-xl-9 border-dark border p-3">
+                    otro test
+                </main>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
