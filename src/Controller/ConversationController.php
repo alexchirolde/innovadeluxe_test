@@ -60,6 +60,7 @@ class ConversationController extends AbstractController
             $defaultContext)];
         $serializer = new Serializer($normalizers, $encoders);
         $messages = $em->getRepository(Messages::class)->findByConversationId($id);
+        $messages[count($messages)]['currentUser'] = '231';
 
         return new JsonResponse($serializer->serialize($messages, 'json'));
     }

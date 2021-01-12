@@ -39,11 +39,11 @@
                         </div>
                     </div>
                     <div class="container">
-                        <div class="row border border-dark chat-wrapper">
+                        <div class="row border border-dark chat-wrapper p-3">
 
                         </div>
                         <template id="message-from-template">
-                            <div class="container border-dark border">
+                            <div class="container border-dark border mb-2">
                                 <div class="d-flex justify-content-between">
                                     <p class="participant-name"></p>
                                     <p class="date-time"></p>
@@ -55,9 +55,21 @@
                         </template>
 
                         <template id="message-to-template">
-                            <div class="d-flex justify-content-end">
-                                <p class="">Yo</p>
-                                <p class="date-time"></p>
+                            <div class="container border-dark border mb-2">
+                                <div class="text-right">
+                                    <p class="date-time mb-0"></p>
+                                    <p class="">Yo</p>
+                                </div>
+                                <div>
+                                    <p class="message-text"></p>
+                                </div>
+                            </div>
+                        </template>
+                        <template id="ajax-error">
+                            <div class="container border-danger border mb-2">
+                                <div class="text-center">
+                                    <p class="text-danger error-message mb-0"></p>
+                                </div>
                             </div>
                         </template>
                     </div>
