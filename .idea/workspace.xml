@@ -10,19 +10,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85b45485-a67e-4957-8282-c9b7c3d246e7" name="Default Changelist" comment="First commit">
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+    <list default="true" id="85b45485-a67e-4957-8282-c9b7c3d246e7" name="Default Changelist" comment="Listing users in conversation with Selected User">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ParticipantsFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/ParticipantsFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/controllers.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/controllers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConversationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Messages.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Messages.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conversation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conversation/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +145,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1mkWt1DdusKGswDNaDF7TqeJwa7" />
@@ -183,6 +179,8 @@
       <workItem from="1610048595653" duration="4200000" />
       <workItem from="1610121991918" duration="9000" />
       <workItem from="1610208696559" duration="984000" />
+      <workItem from="1610406876805" duration="4550000" />
+      <workItem from="1610411939743" duration="6153000" />
     </task>
     <task id="LOCAL-00001" summary="New database schema">
       <created>1610076244299</created>
@@ -205,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610309960161</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Listing users in conversation with Selected User">
+      <created>1610339001015</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610339001015</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +232,9 @@
     <MESSAGE value="New database schema" />
     <MESSAGE value="First commit" />
     <MESSAGE value=".gitignore updated" />
-    <option name="LAST_COMMIT_MESSAGE" value=".gitignore updated" />
+    <MESSAGE value="Listing users in conversation with Selected User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Listing users in conversation with Selected User" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="304" y="187" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610038988122">
@@ -254,14 +261,14 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610325688602" />
-    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610309981922">
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610339015722">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610309981922" />
-    <state x="168" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1610076272736">
-      <screen x="0" y="23" width="1680" height="982" />
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610339015722" />
+    <state x="168" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1610338986461">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="168" y="93" key="DiffContextDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610049496032" />
+    <state x="168" y="93" key="DiffContextDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610338986461" />
     <state x="168" y="93" width="1344" height="840" key="DiffContextDialog/0.23.1680.982@0.23.1680.982" timestamp="1610076272736" />
     <state x="491" y="310" width="698" height="460" key="EditFileWatcherDialog" timestamp="1610310092571">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -271,14 +278,22 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="0" y="23" key="FileDocumentManager.FileCacheConflict/0.23.1680.982@0.23.1680.982" timestamp="1610307469858" />
-    <state x="659" y="451" key="NewPhpFileDialog" timestamp="1610333496128">
+    <state x="598" y="242" key="NewPhpClassDialog" timestamp="1610339334852">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="659" y="451" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610333496128" />
+    <state x="598" y="242" key="NewPhpClassDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610339334852" />
+    <state x="659" y="451" key="NewPhpFileDialog" timestamp="1610339789165">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="659" y="451" key="NewPhpFileDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610339789165" />
     <state x="440" y="261" key="Vcs.Push.Dialog.v2" timestamp="1610053863462">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610053863462" />
+    <state x="488" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610413090727">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="488" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610413090727" />
     <state x="334" y="172" width="947" height="646" key="find.popup" timestamp="1610335970818">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

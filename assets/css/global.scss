@@ -1,3 +1,12 @@
 $brand-primary: darken(#428bca, 20%);
+.chat-wrapper {
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.main-wrapper {
+  height: 90vh;
+}
+
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "../../node_modules/bootstrap";

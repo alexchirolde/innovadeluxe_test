@@ -8,7 +8,7 @@
     </header>
 
     <div class="container-fluid">
-        <div class="container p-4 border border-dark">
+        <div class="container p-4 border border-dark main-wrapper">
             <div class="row flex-xl-nowrap">
                 <aside class="col-12 col-md-3 col-xl-3 border-dark border p-3 h-75 overflow-auto ">
                     {% for key, participant in participants %}
@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="col-sm-9">
 
-                                        <a href="#" onclick="getConversation()" class="participant"
+                                        <a href="#" class="participant"
                                            data-id="{{ key }}">{{ p.name }}</a>
                                     </div>
                                 </div>
@@ -30,10 +30,39 @@
                     {% endfor %}
                 </aside>
                 <main class="col-12 col-md-9 col-xl-9 border-dark border p-3">
-                    otro test
+                    <div class="row mb-3">
+                        <div class="col-3">
+                            <img class="participant-avatar" src="" alt="">
+                        </div>
+                        <div class="col-9">
+                            <h3 class="participant-name"></h3>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row border border-dark chat-wrapper">
+
+                        </div>
+                        <template id="message-from-template">
+                            <div class="container border-dark border">
+                                <div class="d-flex justify-content-between">
+                                    <p class="participant-name"></p>
+                                    <p class="date-time"></p>
+                                </div>
+                                <div>
+                                    <p class="message-text"></p>
+                                </div>
+                            </div>
+                        </template>
+
+                        <template id="message-to-template">
+                            <div class="d-flex justify-content-end">
+                                <p class="">Yo</p>
+                                <p class="date-time"></p>
+                            </div>
+                        </template>
+                    </div>
                 </main>
             </div>
         </div>
-
     </div>
 {% endblock %}
