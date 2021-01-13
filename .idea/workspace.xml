@@ -13,13 +13,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85b45485-a67e-4957-8282-c9b7c3d246e7" name="Default Changelist" comment="">
+    <list default="true" id="85b45485-a67e-4957-8282-c9b7c3d246e7" name="Default Changelist" comment="ajax loading the messages on conversations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConversationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MessagesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MessagesRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/conversation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conversation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +183,7 @@
       <workItem from="1610406876805" duration="4550000" />
       <workItem from="1610411939743" duration="6576000" />
       <workItem from="1610476126194" duration="7595000" />
-      <workItem from="1610556652329" duration="6377000" />
+      <workItem from="1610556652329" duration="8757000" />
     </task>
     <task id="LOCAL-00001" summary="New database schema">
       <created>1610076244299</created>
@@ -228,11 +227,28 @@
       <option name="project" value="LOCAL" />
       <updated>1610482748996</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ajax loading the messages on conversations">
+      <created>1610566010217</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610566010217</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -253,7 +269,8 @@
     <MESSAGE value="Listing users in conversation with Selected User" />
     <MESSAGE value="Added ajax for loading messages. Needs fixes" />
     <MESSAGE value="Properly displaying conversations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Properly displaying conversations" />
+    <MESSAGE value="ajax loading the messages on conversations" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajax loading the messages on conversations" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -281,14 +298,14 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610325688602" />
-    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610482748823">
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610567645273">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610482748823" />
-    <state x="168" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1610338986461">
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610567645273" />
+    <state x="168" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1610567640326">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="168" y="93" key="DiffContextDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610338986461" />
+    <state x="168" y="93" key="DiffContextDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610567640326" />
     <state x="168" y="93" width="1344" height="840" key="DiffContextDialog/0.23.1680.982@0.23.1680.982" timestamp="1610076272736" />
     <state x="491" y="310" width="698" height="460" key="EditFileWatcherDialog" timestamp="1610310092571">
       <screen x="0" y="0" width="1680" height="1050" />
@@ -310,6 +327,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="440" y="261" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610053863462" />
+    <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1610568564634">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="100" y="100" width="1480" height="850" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610568564634" />
     <state x="488" y="146" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610482466383">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -322,10 +343,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610218007199" />
-    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup" timestamp="1610485863191">
+    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup" timestamp="1610567918543">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610485863191" />
+    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610567918543" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.982@0.23.1680.982" timestamp="1610042289615" />
   </component>
 </project>

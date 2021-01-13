@@ -1,3 +1,5 @@
+import quill from "quill";
+
 var $ = require('jquery');
 
 require('bootstrap-sass');
@@ -7,9 +9,11 @@ let participantId;
 $('.participant').on('click', function (e) {
     e.preventDefault();
     $('.chat-wrapper').empty();
+    $('.quill-editor').addClass('d-none');
     if ('content' in document.createElement('template')) {
         participantId = $(this).attr('data-id');
         ajaxCall(chatWrapper, false, 0);
+        participantId = $(this).attr('data-id');
     } else {
         alert('Please upgrade your browser to support templates tag');
     }
@@ -47,6 +51,7 @@ function ajaxCall(chatWrapper, scrolled, offset) {
             var data = $.parseJSON(response)
             $('.participant-avatar').attr('src', data[0]["messageFrom"]["avatar"]);
             $('.participant-name').html(data[0]["messageFrom"]["name"]);
+            $('.quill-editor').removeClass('d-none');
             var currentParticipant = data.pop();
 
             var templateFrom = document.querySelector('#message-from-template');
@@ -92,3 +97,13 @@ function ajaxCall(chatWrapper, scrolled, offset) {
         }
     });
 };
+
+//  QUILL EDITOR
+var options = {
+    debug: 'info',
+
+    placeholder: 'Send a message...',
+    readOnly: false,
+    theme: 'snow'
+};
+var editor = new quill('#quill', options);
