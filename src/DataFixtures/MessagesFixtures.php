@@ -19,16 +19,17 @@ use Faker\Generator;
 class MessagesFixtures extends BaseFixtures implements DependentFixtureInterface
 {
 
-    public function loadData(ObjectManager $manager){
+    public function loadData(ObjectManager $manager)
+    {
 
         $conversations = $manager->getRepository(Conversation::class)->findAll();
         $participants = $manager->getRepository(Participant::class)->findAll();
         $tags = $manager->getRepository(Tags::class)->findAll();
 
-        foreach ($conversations as $conversation){
+        foreach ($conversations as $conversation) {
             $participantFrom = $participants[rand(0, count($participants) - 1)];
             $participantTo = $participants[rand(0, count($participants) - 1)];
-            for ($i = 0; $i < rand(10, 20); $i++){
+            for ($i = 0; $i < rand(10, 20); $i++) {
                 $message = new Messages();
                 $message->setConversation($conversation);
                 $message->setMessageFrom($participantFrom);

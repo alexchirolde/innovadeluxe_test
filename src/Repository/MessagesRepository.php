@@ -22,12 +22,14 @@ class MessagesRepository extends ServiceEntityRepository
     // /**
     //  * @return Messages[] Returns an array of Messages objects
     //  */
-    public function findByConversationId($value)
+    public function findByConversationId($value, $offset)
     {
         return $this->createQueryBuilder('m')
             ->andWhere('m.conversation = :val')
             ->setParameter('val', $value)
             ->orderBy('m.dateAdd', 'ASC')
+            ->setFirstResult($offset)
+            ->setMaxResults(5 + $offset)
             ->getQuery()
             ->getResult();
     }

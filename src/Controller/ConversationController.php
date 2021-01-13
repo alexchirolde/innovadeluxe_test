@@ -37,13 +37,15 @@ class ConversationController extends AbstractController
     }
 
     /**
-     * @Route ("/ajaxConversations/{id}")
+     * @Route ("/ajaxConversations/{id}/{offset}")
      * @param EntityManagerInterface $em
      * @param $id
+     * @param $offset
      * @return string
      */
-    public function getConversation(EntityManagerInterface $em, $id)
+    public function getConversation(EntityManagerInterface $em, $id, $offset = 0)
     {
+        $testParticipant = $em->getRepository(Participant::class)->findOneBy(['name' => 'Admin']);
         $encoders = [new JsonEncoder()];
         $defaultContext = [
             AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
@@ -59,8 +61,8 @@ class ConversationController extends AbstractController
             null,
             $defaultContext)];
         $serializer = new Serializer($normalizers, $encoders);
-        $messages = $em->getRepository(Messages::class)->findByConversationId($id);
-        $messages[count($messages)]['currentUser'] = '231';
+        $messages = $em->getRepository(Messages::class)->findByConversationId($id, $offset);
+        $messages[count($messages)]['currentUser'] = $testParticipant->getId();
 
         return new JsonResponse($serializer->serialize($messages, 'json'));
     }

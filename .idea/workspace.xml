@@ -15,9 +15,11 @@
   <component name="ChangeListManager">
     <list default="true" id="85b45485-a67e-4957-8282-c9b7c3d246e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ConversationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ConversationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/conversation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/conversation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MessagesFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MessagesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MessagesRepository.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +183,8 @@
       <workItem from="1610208696559" duration="984000" />
       <workItem from="1610406876805" duration="4550000" />
       <workItem from="1610411939743" duration="6576000" />
-      <workItem from="1610476126194" duration="3407000" />
+      <workItem from="1610476126194" duration="7595000" />
+      <workItem from="1610556652329" duration="6377000" />
     </task>
     <task id="LOCAL-00001" summary="New database schema">
       <created>1610076244299</created>
@@ -218,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610429550947</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Properly displaying conversations">
+      <created>1610482748996</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1610482748996</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,14 +252,15 @@
     <MESSAGE value=".gitignore updated" />
     <MESSAGE value="Listing users in conversation with Selected User" />
     <MESSAGE value="Added ajax for loading messages. Needs fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ajax for loading messages. Needs fixes" />
+    <MESSAGE value="Properly displaying conversations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Properly displaying conversations" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="304" y="187" width="1071" height="510" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610459699884">
+    <state x="304" y="187" width="1071" height="510" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610556899786">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="304" y="187" width="1071" height="510" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610459699884" />
+    <state x="304" y="187" width="1071" height="510" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610556899786" />
     <state x="559" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610322066664">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -270,10 +281,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="578" y="287" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610325688602" />
-    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610429550691">
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2" timestamp="1610482748823">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610429550691" />
+    <state x="417" y="23" width="846" height="982" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610482748823" />
     <state x="168" y="93" width="1344" height="840" key="DiffContextDialog" timestamp="1610338986461">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
@@ -311,10 +322,10 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="248" key="run.anything.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610218007199" />
-    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup" timestamp="1610482639495">
+    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup" timestamp="1610485863191">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610482639495" />
+    <state x="505" y="225" width="670" height="723" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1610485863191" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.982@0.23.1680.982" timestamp="1610042289615" />
   </component>
 </project>
