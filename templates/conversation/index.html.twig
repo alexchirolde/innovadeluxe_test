@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="container p-4 border border-dark main-wrapper">
             <div class="row flex-xl-nowrap">
-                <aside class="col-12 col-md-3 col-xl-3 border-dark border p-3 h-75 overflow-auto ">
+                <aside class="col-12 col-md-3 col-xl-3 border-dark border p-3 overflow-auto conversations-wrapper">
                     {% for conversationId, participant in conversations %}
                         {% for p in participant %}
                             {% if p.id != currentParticipant %}
@@ -76,12 +76,15 @@
                         </template>
                     </div>
                     <div class="container quill-editor d-none">
+                        {# <form action="/messages/new" method="post"> #}
+                        <input type="hidden" id="messageText" name="messageText">
                         <div id="quill"></div>
                         <div class="d-flex justify-content-end">
-                            <button id="send-message" class="btn btn-secondary">
-                                Send
+                            <button type="submit" id="send-message" class="btn btn-secondary">
+                                Enviar respuesta
                             </button>
                         </div>
+                        {# </form> #}
                     </div>
                 </main>
             </div>

@@ -20,7 +20,7 @@ class ConversationFixtures extends BaseFixtures
 
     public function loadData(ObjectManager $manager){
 
-        for ($i = 0; $i < 10; $i++){
+        for ($i = 0; $i < 500; $i++) {
             $conversation = new Conversation();
             $conversation->setDateAdd($this->faker->dateTimeBetween('-5 months', 'now'));
             $conversation->setDateUpdated($this->faker->dateTime('now'));

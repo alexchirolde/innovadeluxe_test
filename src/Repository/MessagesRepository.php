@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Messages;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -14,9 +15,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class MessagesRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    public $manager;
+
+    public function __construct(ManagerRegistry $registry, EntityManagerInterface $manager)
     {
         parent::__construct($registry, Messages::class);
+        $this->manager = $manager;
     }
 
     // /**
@@ -25,8 +29,13 @@ class MessagesRepository extends ServiceEntityRepository
     public function findByConversationId($value, $offset)
     {
         return $this->createQueryBuilder('m')
+            ->select('m.messageText', 'm.dateAdd')
             ->andWhere('m.conversation = :val')
             ->setParameter('val', $value)
+            ->leftJoin('m.messageFrom', 'mf')
+            ->addSelect('mf.name as messageFrom', 'mf.avatar', 'mf.id')
+            ->leftJoin('m.messageTo', 'mt')
+            ->addSelect('mt.name as messageTo', 'mt.avatar', 'mf.id')
             ->orderBy('m.dateAdd', 'ASC')
             ->setFirstResult($offset)
             ->setMaxResults(5 + $offset)
@@ -44,5 +53,20 @@ class MessagesRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    public function saveMessage($messageText, $dateAdd, $conversation, $messageFrom, $messageTo)
+    {
+        $newMessage = new Messages();
+
+        $newMessage
+            ->setMessageText($messageText)
+            ->setConversation($conversation)
+            ->setDateAdd($dateAdd)
+            ->setMessageFrom($messageFrom)
+            ->setMessageTo($messageTo);
+
+        $this->manager->persist($newMessage);
+        $this->manager->flush();
+    }
 
 }

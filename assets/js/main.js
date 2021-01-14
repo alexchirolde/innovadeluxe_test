@@ -6,7 +6,7 @@ require('bootstrap-sass');
 
 let chatWrapper = document.querySelector('.chat-wrapper');
 let conversationId, messageFromId;
-var offset = 0, disableScroll = false;
+var offset = 0, disableScroll = false, limit = 0;
 //  RETRIEVING MESSAGES OF A CONVERSATION
 $('.participant').on('click', function (e) {
     e.preventDefault();
@@ -31,6 +31,14 @@ $('.chat-wrapper').scroll(function (e) {
     }
 })
 
+//  RETRIEVING CONVERSATIONS ON SCROLLING
+$('.conversations-wrapper').scroll(function (e) {
+    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+        console.log("bottom!");
+
+    }
+})
+
 function formatDate(date) {
     var curr_date = date.getDate();
     var curr_month = date.getMonth() + 1;
@@ -45,7 +53,7 @@ function formatDate(date) {
 //  RETRIEVING MESSAGES
 function ajaxCall(chatWrapper, scrolled, offset) {
     $.ajax({
-        url: '/ajaxConversations/' + conversationId + '/' + offset,
+        url: '/ajaxMessages/' + conversationId + '/' + offset,
         method: 'GET',
         dataType: 'JSON',
         async: 'false',
@@ -54,9 +62,9 @@ function ajaxCall(chatWrapper, scrolled, offset) {
             var data = $.parseJSON(response)
             if (data.length !== 1) {
                 messageFromId = $('.participant-name');
-                $('.participant-avatar').attr('src', data[0]["messageFrom"]["avatar"]);
-                messageFromId.html(data[0]["messageFrom"]["name"]);
-                messageFromId.attr('data-id', data[0]["messageFrom"]["id"]);
+                $('.participant-avatar').attr('src', data[0]["avatar"]);
+                messageFromId.html(data[0]["messageFrom"]);
+                messageFromId.attr('data-id', data[0]["id"]);
                 messageFromId = messageFromId.attr('data-id');
                 $('.quill-editor').removeClass('d-none');
                 var currentParticipant = data.pop();
@@ -64,13 +72,13 @@ function ajaxCall(chatWrapper, scrolled, offset) {
                 var templateFrom = document.querySelector('#message-from-template');
                 var templateTo = document.querySelector('#message-to-template');
                 for (let i = 0; i < data.length; i++) {
-                    if (parseInt(currentParticipant['currentUser']) !== parseInt(data[i]['messageFrom']['id'])) {
+                    if (parseInt(currentParticipant['currentUser']) !== parseInt(data[i]['id'])) {
                         var cloneFrom = templateFrom.content.cloneNode(true);
                         var messageFrom = cloneFrom.querySelector('.participant-name');
                         var messageFromDate = cloneFrom.querySelector('.date-time');
                         var messageFromText = cloneFrom.querySelector('.message-text');
 
-                        messageFrom.innerHTML = data[i]["messageFrom"]["name"];
+                        messageFrom.innerHTML = data[i]["messageFrom"];
                         messageFromDate.innerHTML = formatDate(new Date(data[i]["dateAdd"]["timestamp"]));
                         messageFromText.innerHTML = data[i]["messageText"];
                         chatWrapper.append(cloneFrom);
@@ -116,25 +124,33 @@ var options = {
     theme: 'snow'
 };
 var editor = new quill('#quill', options);
-
 //  SEND MESSAGE
 
+// editor.on('text-change', function (delta, oldDelta, source) {
+//     $('#messageText').val(editor.getContents())
+//     console.log($('#messageText').val())
+// });
+
 $('#send-message').on('click', function () {
+    $('#messageText').val(editor.getContents())
     var data = {
         conversationId: conversationId,
-        messageFrom: conversationId,
+        messageFrom: '1',
         messageTo: messageFromId,
-        messageText: conversationId,
+        messageText: editor.getContents().ops[0]['insert'],
     };
     $.ajax({
         url: '/messages/new',
         method: 'POST',
-        dataType: 'JSON',
-        async: 'false',
-        global: 'false',
         data: data,
-        success: function () {
-
+        success: function (response) {
+            editor.setContents();
+            console.log(response)
+            ajaxCall(chatWrapper, true, 0);
         }
     });
 });
+
+$(document).ready(function () {
+    $('.conversations-wrapper').scrollTop(0);
+})

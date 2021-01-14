@@ -8,5 +8,9 @@ $brand-primary: darken(#428bca, 20%);
   height: 90vh;
 }
 
+.conversations-wrapper {
+  height: 75vh;
+}
+
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "../../node_modules/bootstrap";
