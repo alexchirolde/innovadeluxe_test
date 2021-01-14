@@ -24,15 +24,12 @@ class ConversationController extends AbstractController
      */
     public function index(EntityManagerInterface $em): Response
     {
-        $participants = array();
-        $testParticipant = $em->getRepository(Participant::class)->findOneBy(['name' => 'Admin']);
-        $conversations = $testParticipant->getConversation();
-        foreach ($conversations as $conversation) {
-            $participants[$conversation->getId()] = $conversation->getParticipant();
-        }
+        $conversationsParticipants = $this->getConversationsOfParticipant($em);
+//        dd($conversationsParticipants);
+
         return $this->render('conversation/index.html.twig', [
-            'participants' => $participants,
-            'currentParticipant' => $testParticipant->getid()
+            'conversations' => $conversationsParticipants,
+            'currentParticipant' => 1
         ]);
     }
 
@@ -43,9 +40,8 @@ class ConversationController extends AbstractController
      * @param $offset
      * @return string
      */
-    public function getConversation(EntityManagerInterface $em, $id, $offset = 0)
+    public function getConversation(EntityManagerInterface $em, $id, $offset)
     {
-        $testParticipant = $em->getRepository(Participant::class)->findOneBy(['name' => 'Admin']);
         $encoders = [new JsonEncoder()];
         $defaultContext = [
             AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
@@ -62,8 +58,20 @@ class ConversationController extends AbstractController
             $defaultContext)];
         $serializer = new Serializer($normalizers, $encoders);
         $messages = $em->getRepository(Messages::class)->findByConversationId($id, $offset);
-        $messages[count($messages)]['currentUser'] = $testParticipant->getId();
+        $messages[count($messages)]['currentUser'] = 1;
 
         return new JsonResponse($serializer->serialize($messages, 'json'));
+    }
+
+    public function getConversationsOfParticipant($em, $limit = 10)
+    {
+        $arr = array();
+        $testParticipant = $em->getRepository(Participant::class)->findOneBy(['name' => 'Admin']);
+        $conversations = $testParticipant->getConversation();
+        foreach ($conversations as $conversation) {
+            $arr[$conversation->getId()] = $conversation->getParticipant();
+        }
+
+        return array_slice($arr, 0, $limit, true);
     }
 }

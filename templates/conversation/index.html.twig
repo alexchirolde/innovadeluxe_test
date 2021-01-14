@@ -13,7 +13,7 @@
         <div class="container p-4 border border-dark main-wrapper">
             <div class="row flex-xl-nowrap">
                 <aside class="col-12 col-md-3 col-xl-3 border-dark border p-3 h-75 overflow-auto ">
-                    {% for key, participant in participants %}
+                    {% for conversationId, participant in conversations %}
                         {% for p in participant %}
                             {% if p.id != currentParticipant %}
                                 <div class="row my-2">
@@ -23,7 +23,7 @@
                                     <div class="col-sm-9">
 
                                         <a href="#" class="participant"
-                                           data-id="{{ key }}">{{ p.name }}</a>
+                                           data-id="{{ conversationId }}">{{ p.name }}</a>
                                     </div>
                                 </div>
                             {% endif %}
@@ -37,7 +37,7 @@
                             <img class="participant-avatar" src="" alt="">
                         </div>
                         <div class="col-9">
-                            <h3 class="participant-name"></h3>
+                            <h3 class="participant-name" data-id=""></h3>
                         </div>
                     </div>
                     <div class="container">
