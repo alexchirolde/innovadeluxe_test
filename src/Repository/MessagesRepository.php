@@ -29,13 +29,22 @@ class MessagesRepository extends ServiceEntityRepository
     public function findByConversationId($value, $offset)
     {
         return $this->createQueryBuilder('m')
-            ->select('m.messageText', 'm.dateAdd')
+            ->select('m.dateAdd')
             ->andWhere('m.conversation = :val')
             ->setParameter('val', $value)
             ->leftJoin('m.messageFrom', 'mf')
-            ->addSelect('mf.name as messageFrom', 'mf.avatar', 'mf.id')
+            ->addSelect(
+                'mf.name as messageFrom',
+                'mf.avatar',
+                'mf.id as messageFromId',
+                'm.dateAdd as messageFromDateAdd',
+                'm.messageText as messageFromText')
             ->leftJoin('m.messageTo', 'mt')
-            ->addSelect('mt.name as messageTo', 'mt.avatar', 'mf.id')
+            ->addSelect(
+                'mt.name as messageTo',
+                'mt.id as messageToId',
+                'm.dateAdd as messageToDateAdd',
+                'm.messageText as messageToText')
             ->orderBy('m.dateAdd', 'ASC')
             ->setFirstResult($offset)
             ->setMaxResults(5 + $offset)

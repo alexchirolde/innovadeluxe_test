@@ -76,12 +76,13 @@ $('.conversations-wrapper').scroll(function (e) {
 })
 
 function formatDate(date) {
-    var curr_date = date.getDate();
-    var curr_month = date.getMonth() + 1;
-    var curr_year = date.getFullYear();
-    var hour = date.getHours();
-    var minutes = date.getMinutes();
-    var seconds = date.getSeconds();
+    var d = new Date(date * 1000);
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth() + 1;
+    var curr_year = d.getFullYear();
+    var hour = d.getHours();
+    var minutes = d.getMinutes();
+    var seconds = d.getSeconds();
     return curr_date + '-' + curr_month + '-' + curr_year + ' ' + hour + ':' + minutes + ':' + seconds;
 
 }
@@ -95,11 +96,12 @@ function ajaxCall(chatWrapper, scrolled, offset) {
         async: 'false',
         success: function (response) {
             var data = $.parseJSON(response)
+            console.log(data)
             if (data.length !== 1) {
                 messageFromId = $('.participant-name');
                 $('.participant-avatar').attr('src', data[0]["avatar"]);
                 messageFromId.html(data[0]["messageFrom"]);
-                messageFromId.attr('data-id', data[0]["id"]);
+                messageFromId.attr('data-id', data[0]["messageFromId"]);
                 messageFromId = messageFromId.attr('data-id');
                 $('.quill-editor').removeClass('d-none');
                 var currentParticipant = data.pop();
@@ -107,23 +109,23 @@ function ajaxCall(chatWrapper, scrolled, offset) {
                 var templateFrom = document.querySelector('#message-from-template');
                 var templateTo = document.querySelector('#message-to-template');
                 for (let i = 0; i < data.length; i++) {
-                    if (parseInt(currentParticipant['currentUser']) !== parseInt(data[i]['id'])) {
+                    if (parseInt(currentParticipant['currentUser']) !== parseInt(data[i]['messageFromId'])) {
                         var cloneFrom = templateFrom.content.cloneNode(true);
                         var messageFrom = cloneFrom.querySelector('.participant-name');
                         var messageFromDate = cloneFrom.querySelector('.date-time');
                         var messageFromText = cloneFrom.querySelector('.message-text');
 
                         messageFrom.innerHTML = data[i]["messageFrom"];
-                        messageFromDate.innerHTML = formatDate(new Date(data[i]["dateAdd"]["timestamp"]));
-                        messageFromText.innerHTML = data[i]["messageText"];
+                        messageFromDate.innerHTML = formatDate(new Date(data[i]["messageFromDateAdd"]["timestamp"]));
+                        messageFromText.innerHTML = data[i]["messageFromText"];
                         chatWrapper.append(cloneFrom);
                     } else {
                         var cloneTo = templateTo.content.cloneNode(true);
                         var messageToDate = cloneTo.querySelector('.date-time');
                         var messageToText = cloneTo.querySelector('.message-text');
 
-                        messageToDate.innerHTML = formatDate(new Date(data[i]["dateAdd"]["timestamp"]));
-                        messageToText.innerHTML = data[i]["messageText"];
+                        messageToDate.innerHTML = formatDate(new Date(data[i]["messageToDateAdd"]["timestamp"]));
+                        messageToText.innerHTML = data[i]["messageToText"];
                         chatWrapper.append(cloneTo);
                     }
                 }

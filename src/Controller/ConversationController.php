@@ -32,7 +32,7 @@ class ConversationController extends AbstractController
         } else
             return $this->render('conversation/index.html.twig', [
                 'conversations' => $conversationsParticipants,
-                'currentParticipant' => 1
+                'currentParticipant' => $this->getParameter('app.user_test_id')
             ]);
     }
 
@@ -47,7 +47,7 @@ class ConversationController extends AbstractController
     {
         $serializer = $this->getSerializer();
         $messages = $em->getRepository(Messages::class)->findByConversationId($id, $offset);
-        $messages[count($messages)]['currentUser'] = 1;
+        $messages[count($messages)]['currentUser'] = $this->getParameter('app.user_test_id');
 
         return new JsonResponse($serializer->serialize($messages, 'json'));
     }
@@ -55,7 +55,7 @@ class ConversationController extends AbstractController
     public function getConversationsOfParticipant($em, $limit = 20)
     {
         $arr = array();
-        $testParticipant = $em->getRepository(Participant::class)->findOneBy(['id' => 1]);
+        $testParticipant = $em->getRepository(Participant::class)->findOneBy(['id' => $this->getParameter('app.user_test_id')]);
         $conversations = $testParticipant->getConversation();
         foreach ($conversations as $conversation) {
             $arr[$conversation->getId()] = $conversation->getParticipant();
@@ -73,7 +73,7 @@ class ConversationController extends AbstractController
     {
         $serializer = $this->getSerializer();
 
-        $conversations = $em->getRepository(Conversation::class)->findById(1, $offset);
+        $conversations = $em->getRepository(Conversation::class)->findById($this->getParameter('app.user_test_id'), $offset);
 
 
         return new JsonResponse($serializer->serialize($conversations, 'json'));
