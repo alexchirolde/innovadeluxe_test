@@ -5,10 +5,11 @@ var $ = require('jquery');
 require('bootstrap-sass');
 
 let chatWrapper = document.querySelector('.chat-wrapper');
+let conversationWrapper = document.querySelector('.conversations-wrapper');
 let conversationId, messageFromId;
-var offset = 0, disableScroll = false, limit = 0;
+var messagesOffset = 0, conversationsOffset = 0, disableScroll = false, disableScrollConversations = false, limit = 0;
 //  RETRIEVING MESSAGES OF A CONVERSATION
-$('.participant').on('click', function (e) {
+$('.participant, .participant-template').on('click', function (e) {
     e.preventDefault();
     $('.chat-wrapper').empty();
     $('.quill-editor').addClass('d-none');
@@ -24,17 +25,52 @@ $('.participant').on('click', function (e) {
 $('.chat-wrapper').scroll(function (e) {
 
     if ($(this).scrollTop() === 0) {
-        offset += 5;
+        messagesOffset += 5;
         if (!disableScroll)
-            ajaxCall(chatWrapper, true, offset);
+            ajaxCall(chatWrapper, true, messagesOffset);
 
     }
 })
 
 //  RETRIEVING CONVERSATIONS ON SCROLLING
 $('.conversations-wrapper').scroll(function (e) {
-    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-        console.log("bottom!");
+    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight && !disableScrollConversations) {
+        conversationsOffset += 5;
+        $.ajax({
+            url: '/conversation/',
+            method: 'GET',
+            dataType: 'JSON',
+            async: 'false',
+            data: {offset: conversationsOffset},
+            success: function (response) {
+                var data = $.parseJSON(response)
+                if (data.length !== 1) {
+                    var templateParticipant = document.querySelector('#participant-conversation');
+                    for (let i = 0; i < data.length; i++) {
+                        var cloneParticipant = templateParticipant.content.cloneNode(true);
+                        var avatar = cloneParticipant.querySelector('img.avatar');
+                        var participant = cloneParticipant.querySelector('.participant-template');
+
+                        avatar.src = data[i]['avatar'];
+                        participant.innerHTML = data[i]['name'];
+                        participant.setAttribute('data-id', data[i]['conversationId']);
+
+                        conversationWrapper.append(cloneParticipant);
+                    }
+                } else
+                    disableScrollConversations = true;
+            },
+            error: function (xhr, status) {
+                if (typeof this.statusCode[xhr.status] != 'undefined') {
+                    return false;
+                }
+            },
+            statusCode: {
+                500: function (response) {
+                    console.log(response)
+                }
+            }
+        });
 
     }
 })
@@ -57,7 +93,6 @@ function ajaxCall(chatWrapper, scrolled, offset) {
         method: 'GET',
         dataType: 'JSON',
         async: 'false',
-        global: 'false',
         success: function (response) {
             var data = $.parseJSON(response)
             if (data.length !== 1) {
@@ -126,18 +161,13 @@ var options = {
 var editor = new quill('#quill', options);
 //  SEND MESSAGE
 
-// editor.on('text-change', function (delta, oldDelta, source) {
-//     $('#messageText').val(editor.getContents())
-//     console.log($('#messageText').val())
-// });
-
 $('#send-message').on('click', function () {
     $('#messageText').val(editor.getContents())
     var data = {
         conversationId: conversationId,
         messageFrom: '1',
         messageTo: messageFromId,
-        messageText: editor.getContents().ops[0]['insert'],
+        messageText: editor.getText(),
     };
     $.ajax({
         url: '/messages/new',
@@ -145,7 +175,6 @@ $('#send-message').on('click', function () {
         data: data,
         success: function (response) {
             editor.setContents();
-            console.log(response)
             ajaxCall(chatWrapper, true, 0);
         }
     });

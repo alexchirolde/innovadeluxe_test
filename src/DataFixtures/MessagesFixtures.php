@@ -28,12 +28,13 @@ class MessagesFixtures extends BaseFixtures implements DependentFixtureInterface
 
         foreach ($conversations as $conversation) {
             $participantFrom = $participants[rand(0, count($participants) - 1)];
-            $participantTo = $participants[rand(0, count($participants) - 1)];
+            $tmpParticipant = $participants[rand(0, count($participants) - 1)];
+            $participantTo = $tmpParticipant == $participantFrom ? $participants[rand(0, count($participants) - 1)] : $tmpParticipant;
             for ($i = 0; $i < rand(10, 20); $i++) {
                 $message = new Messages();
                 $message->setConversation($conversation);
                 $message->setMessageFrom($participantFrom);
-                $message->setMessageTo($participantTo == $participantFrom ? $participants[rand(0, count($participants) - 1)] : $participantTo);
+                $message->setMessageTo($participantTo);
                 $message->setMessageText($this->faker->text());
                 $message->setDateAdd($this->faker->dateTimeBetween('-5 months', 'now'));
                 $conversation->addParticipant($participantFrom);

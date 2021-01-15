@@ -22,15 +22,22 @@ class ConversationRepository extends ServiceEntityRepository
     // /**
     //  * @return Conversation[] Returns an array of Conversation objects
     //  */
-    public function findByExampleField($value)
+    public function findById($value, $offset)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
+            ->innerJoin('c.participant', 'p')
+            ->select('p.id')
+            ->where('p.id = :val')
             ->setParameter('val', $value)
+            ->innerJoin('c.participant', 'otherParticipant')
+            ->select('otherParticipant.name', 'otherParticipant.avatar', 'c.id as conversationId')
+            ->andWhere('otherParticipant.id != p.id')
             ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->setFirstResult($offset)
+            ->setMaxResults(5 + $offset)
             ->getQuery()
             ->getResult();
+
     }
 
     /*
