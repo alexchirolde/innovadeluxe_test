@@ -45,21 +45,7 @@ class ConversationController extends AbstractController
      */
     public function getMessages(EntityManagerInterface $em, $id, $offset)
     {
-        $encoders = [new JsonEncoder()];
-        $defaultContext = [
-            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object) {
-                return $object->getId();
-            },
-        ];
-        $normalizers = [new ObjectNormalizer(
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            $defaultContext)];
-        $serializer = new Serializer($normalizers, $encoders);
+        $serializer = $this->getSerializer();
         $messages = $em->getRepository(Messages::class)->findByConversationId($id, $offset);
         $messages[count($messages)]['currentUser'] = 1;
 
@@ -85,6 +71,17 @@ class ConversationController extends AbstractController
      */
     public function getConversations(EntityManagerInterface $em, $offset)
     {
+        $serializer = $this->getSerializer();
+
+        $conversations = $em->getRepository(Conversation::class)->findById(1, $offset);
+
+
+        return new JsonResponse($serializer->serialize($conversations, 'json'));
+
+    }
+
+    public function getSerializer()
+    {
         $encoders = [new JsonEncoder()];
         $defaultContext = [
             AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object) {
@@ -99,12 +96,7 @@ class ConversationController extends AbstractController
             null,
             null,
             $defaultContext)];
-        $serializer = new Serializer($normalizers, $encoders);
-
-        $conversations = $em->getRepository(Conversation::class)->findById(1, $offset);
-
-
-        return new JsonResponse($serializer->serialize($conversations, 'json'));
+        return new Serializer($normalizers, $encoders);
 
     }
 
